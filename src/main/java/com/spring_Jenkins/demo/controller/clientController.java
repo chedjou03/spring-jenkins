@@ -1,7 +1,6 @@
 package com.spring_Jenkins.demo.controller;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring_Jenkins.demo.model.Client;
 import com.spring_Jenkins.demo.service.ClientService;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
 @RestController
 public class clientController {

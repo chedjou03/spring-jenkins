@@ -31,4 +31,10 @@ class DemoApplicationTests {
 		assertEquals(true,true);
 	}
 
+
+	@Test
+	void contextLoads3() {
+		logger.info("*************** test case 3  is execution ");
+		assertEquals(true,true);
+	}
 }
