@@ -39,7 +39,7 @@ class DemoApplicationTests {
 	@Test
 	@Order(4)
 	void contextLoads4() {
-		logger.info("*************** test case 4  is execution  ************ test webhook");
+		logger.info("*************** test case 4  is execution ");
 		assertEquals(true,true);
 	}
 
