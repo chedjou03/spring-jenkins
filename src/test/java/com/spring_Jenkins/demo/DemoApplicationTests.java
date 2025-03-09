@@ -17,24 +17,23 @@ class DemoApplicationTests {
 	@Test
 	@Order(1)
 	void contextLoads() {
-		logger.info("*************** test case is execution ");
+		logger.info("*************** test case 1 is execution ");
 		assertEquals(true,true);
 	}
 
 	@Test
 	@Order(2)
-	void contextLoads1() {
-		logger.info("*************** test case 1  is execution ");
-		assertEquals(true,true);
-	}
-
-	@Test
-	@Order(3)
 	void contextLoads2() {
 		logger.info("*************** test case 2  is execution ");
 		assertEquals(true,true);
 	}
 
+	@Test
+	@Order(3)
+	void contextLoads3() {
+		logger.info("*************** test case 3  is execution ");
+		assertEquals(true,true);
+	}
 
 	@Test
 	@Order(4)
@@ -43,10 +42,10 @@ class DemoApplicationTests {
 		assertEquals(true,true);
 	}
 
-
 	@Test
-	void contextLoads3() {
-		logger.info("*************** test case 3  is execution ");
+	@Order(5)
+	void contextLoads5() {
+		logger.info("*************** test case 5 is execution ");
 		assertEquals(true,true);
 	}
 }
