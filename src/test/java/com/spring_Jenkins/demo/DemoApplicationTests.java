@@ -1,5 +1,6 @@
 package com.spring_Jenkins.demo;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,20 +15,31 @@ class DemoApplicationTests {
 	public static Logger logger = LoggerFactory.getLogger(DemoApplicationTests.class);
 
 	@Test
+	@Order(1)
 	void contextLoads() {
 		logger.info("*************** test case is execution ");
 		assertEquals(true,true);
 	}
 
 	@Test
+	@Order(2)
 	void contextLoads1() {
 		logger.info("*************** test case 1  is execution ");
 		assertEquals(true,true);
 	}
 
 	@Test
+	@Order(3)
 	void contextLoads2() {
 		logger.info("*************** test case 2  is execution ");
+		assertEquals(true,true);
+	}
+
+
+	@Test
+	@Order(4)
+	void contextLoads4() {
+		logger.info("*************** test case 4  is execution  ************ test webhook");
 		assertEquals(true,true);
 	}
 
