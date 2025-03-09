@@ -1,0 +1,7 @@
+server:
+  port: 8080  # Sets the application to run on port 8080
+
+spring:
+  application:
+    name: my-spring-boot-app  # Sets the application name
+
