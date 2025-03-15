@@ -35,7 +35,7 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      sh 'docker build -t ${DockerImageName}:${DockerImageVersion}'
+                      sh 'docker build -t ${DockerImageName}:${DockerImageVersion} .'
                    }
              }
          }
