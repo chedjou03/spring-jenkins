@@ -1,12 +1,8 @@
 pipeline {
 
     environment {
-            DockerImageName = "chedjou03/client"
-            DockerImageVersion = "0.0.1"
-
-            IMAGE = readMavenPom().getArtifactId()
-            VERSION = readMavenPom().getVersion()
-
+        DockerImageName = readMavenPom().getArtifactId()
+        DockerImageVersion = readMavenPom().getVersion()
     }
 
     agent any
