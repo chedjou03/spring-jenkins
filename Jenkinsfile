@@ -11,8 +11,6 @@ pipeline {
         stage('Checkout Code from GitHub') {
             steps {
                 script {
-                    echo "************** ${VERSION}"
-                    echo "************** ${IMAGE}"
                     checkout scm
                 }
             }
