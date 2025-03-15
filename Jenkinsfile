@@ -1,7 +1,12 @@
 pipeline {
 
     environment {
-            imageName = "chedjou03/client"
+            DockerImageName = "chedjou03/client"
+            DockerImageVersion = "0.0.1"
+
+            IMAGE = readMavenPom().getArtifactId()
+            VERSION = readMavenPom().getVersion()
+
     }
 
     agent any
@@ -10,6 +15,8 @@ pipeline {
         stage('Checkout Code from GitHub') {
             steps {
                 script {
+                    echo "************** ${VERSION}"
+                    echo "************** ${IMAGE}"
                     checkout scm
                 }
             }
@@ -34,7 +41,7 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      sh 'docker build -t ${imageName}:latest .'
+                      sh 'docker build -t ${DockerImageName}:${DockerImageVersion}'
                    }
              }
          }
@@ -45,7 +52,7 @@ pipeline {
                            withCredentials([usernamePassword(credentialsId: 'DOCKER_Credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
 
                                 sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
-                                sh "docker push ${imageName}:latest"
+                                sh "docker push ${DockerImageName}:${DockerImageVersion}"
                            }
                    }
               }
