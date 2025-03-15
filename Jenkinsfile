@@ -47,11 +47,20 @@ pipeline {
          stage('Push Docker Image To Docker HUB') {
               steps {
                    script {
-                       withCredentials([usernamePassword(credentialsId: DOCKER_Credentials, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                              sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
-                              // Push the image
-                              sh "docker push ${imageName}:latest"
-                       }
+//                        withCredentials([usernamePassword(credentialsId: DOCKER_Credentials, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+//                               sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+//                               // Push the image
+//                               sh "docker push ${imageName}:latest"
+//                        }
+                           withCredentials([usernamePassword(credentialsId: 'DOCKER_Credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                                   sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                                   // Push the image
+                                   sh "docker push ${imageName}:latest"
+
+
+                                   //sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
+                                   //sh 'docker push $DOCKER_IMAGE'
+                           }
                    }
               }
          }
