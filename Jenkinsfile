@@ -29,7 +29,7 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                       sh '******* echo BUILDING DOCKER IMAGE'
+                      sh 'docker build -t chedjou03/clientlatest .'
                    }
              }
          }
