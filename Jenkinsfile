@@ -29,7 +29,9 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      sh 'docker build -t chedjou03/clientlatest .'
+                      sh 'echo ***************  '
+                      sh 'whoami'
+                      sh 'docker build -t chedjou03/client:latest .'
                    }
              }
          }
