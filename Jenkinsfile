@@ -1,4 +1,12 @@
 pipeline {
+
+    environment {
+            imagename = "chedjou03/client"
+            dockerImage = ''
+            containerName = 'my-container'
+            dockerHubCredentials = 'admin'
+    }
+
     agent any
 
     stages {
@@ -29,9 +37,9 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      sh 'echo ***************  '
-                      sh 'whoami'
-                      sh 'docker build -t chedjou03/client:latest .'
+                      dockerImage = docker.build "${imagename}:latest"
+                      sh 'echo dockerImage: $dockerImage'
+                      //sh 'docker build -t ${imagename}:latest .'
                    }
              }
          }
@@ -39,9 +47,16 @@ pipeline {
          stage('Push Docker Image To Docker HUB') {
               steps {
                    script {
-                        sh '******* echo PUSHING  DOCKER IMAGE to DOCKER HUB'
+                        sh 'echo ******* PUSHING  DOCKER IMAGE to DOCKER HUB'
                    }
               }
+         }
+
+         stage('Cleaning up') {
+             steps{
+                  sh 'echo *******  REMOVE DOCKER IMAGE '
+                 //sh "docker rmi $registry:$BUILD_NUMBER"
+             }
          }
     }
 }
