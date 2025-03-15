@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-            imagename = "chedjou03/client"
+            imageName = "chedjou03/client"
             dockerImage = ''
             containerName = 'my-container'
             dockerHubCredentials = 'admin'
@@ -37,9 +37,9 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      dockerImage = docker.build "${imagename}:latest"
-                      sh 'echo dockerImage: $dockerImage'
-                      //sh 'docker build -t ${imagename}:latest .'
+                      //dockerImage = docker.build "${imagename}:latest"
+                      //sh 'echo dockerImage: $dockerImage'
+                      sh 'docker build -t ${imageName}:latest .'
                    }
              }
          }
@@ -47,7 +47,11 @@ pipeline {
          stage('Push Docker Image To Docker HUB') {
               steps {
                    script {
-                        sh 'echo ******* PUSHING  DOCKER IMAGE to DOCKER HUB'
+                       withCredentials([usernamePassword(credentialsId: DOCKER_Credentials, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                              sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                              // Push the image
+                              sh "docker push ${imageName}:latest"
+                       }
                    }
               }
          }
