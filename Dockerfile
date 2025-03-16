@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim AS build
 MAINTAINER Simplice Chedjou.com
 
 # Add the application's jar to the container
-COPY target/client-0.0.1.jar  client-0.0.1.jar
+COPY target/client-0.0.3.jar  client-0.0.3.jar
 
 #execute the application
-ENTRYPOINT ["java","-jar","/client-0.0.1.jar"]
+ENTRYPOINT ["java","-jar","/client-0.0.3.jar"]

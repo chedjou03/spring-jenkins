@@ -22,6 +22,7 @@ public class clientController {
 
     @GetMapping("/clients")
     public List<Client> getClients() throws IOException {
+        logger.info("*********** in client Controller");
         List<Client> clients = clientService.getClients();
         return clients;
     }
