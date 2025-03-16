@@ -36,7 +36,7 @@ pipeline {
          stage('Build Docker Image') {
               steps {
                    script {
-                      sh 'docker build -t ${DockerRepo}/${DockerImageName}:${DockerImageVersion} .'
+                      sh 'docker build -t ${DockerRepo}${DockerImageName}:${DockerImageVersion} .'
                    }
              }
          }
@@ -47,7 +47,7 @@ pipeline {
                            withCredentials([usernamePassword(credentialsId: 'DOCKER_Credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
 
                                 sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
-                                sh "docker push ${DockerRepo}/${DockerImageName}:${DockerImageVersion}"
+                                sh "docker push ${DockerRepo}${DockerImageName}:${DockerImageVersion}"
                            }
                    }
               }
