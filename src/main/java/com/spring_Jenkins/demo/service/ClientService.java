@@ -34,11 +34,18 @@ public class ClientService {
 
         Client client6 = new Client(6,"Hermann","Fongoum","hermann@yahoo.com");
 
+        Client client7 = new Client(7,"jamie","Raina","jamie@yahoo.com");
+
+        Client client8 = new Client(8,"thierry","Henry","titi@yahoo.com");
+
         clients.add(client1);
         clients.add(client2);
         clients.add(client3);
         clients.add(client4);
         clients.add(client5);
+        clients.add(client6);
+        clients.add(client7);
+        clients.add(client8);
 
         return clients;
     }
