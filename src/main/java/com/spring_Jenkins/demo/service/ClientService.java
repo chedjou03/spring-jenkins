@@ -38,6 +38,10 @@ public class ClientService {
 
         Client client8 = new Client(8,"thierry","Henry","titi@yahoo.com");
 
+        Client client9 = new Client(9,"Andre","Braxton","andre@yahoo.com");
+
+        Client client10 = new Client(10,"Jimmy","Borrow","jimmy@yahoo.com");
+
         clients.add(client1);
         clients.add(client2);
         clients.add(client3);
@@ -46,6 +50,8 @@ public class ClientService {
         clients.add(client6);
         clients.add(client7);
         clients.add(client8);
+        clients.add(client9);
+        clients.add(client10);
 
         return clients;
     }
