@@ -20,7 +20,7 @@ pipeline {
         stage('Maven Build') {
             steps {
                 script {
-                    sh 'mvn test package'
+                    sh 'mvn package'
                 }
             }
         }
@@ -56,7 +56,6 @@ pipeline {
          stage('Cleaning up') {
              steps{
                   sh 'echo *******  REMOVE DOCKER IMAGE '
-                 //sh "docker rmi $registry:$BUILD_NUMBER"
              }
          }
     }
