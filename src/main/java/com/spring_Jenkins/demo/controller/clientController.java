@@ -2,6 +2,7 @@ package com.spring_Jenkins.demo.controller;
 
 
 import com.spring_Jenkins.demo.model.Client;
+import com.spring_Jenkins.demo.model.ClientCount;
 import com.spring_Jenkins.demo.service.ClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,5 +26,12 @@ public class clientController {
         logger.info("*********** in client Controller");
         List<Client> clients = clientService.getClients();
         return clients;
+    }
+
+    @GetMapping("/clientCount")
+    public ClientCount getClientCount() throws IOException {
+        logger.info("*********** in clientCount Controller");
+        ClientCount aClientCount = new ClientCount(clientService.getClients().size());
+        return aClientCount;
     }
 }
