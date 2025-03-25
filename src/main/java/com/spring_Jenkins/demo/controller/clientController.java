@@ -7,6 +7,7 @@ import com.spring_Jenkins.demo.service.ClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.info.BuildProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,15 @@ public class clientController {
 
     @Autowired
     ClientService clientService;
+
+    @Autowired
+    BuildProperties buildProperties;
+
+    @GetMapping("/version")
+    public String getVersion() throws IOException {
+        logger.info("*********** in version Controller");
+        return  buildProperties.getVersion();
+    }
 
     @GetMapping("/clients")
     public List<Client> getClients() throws IOException {
