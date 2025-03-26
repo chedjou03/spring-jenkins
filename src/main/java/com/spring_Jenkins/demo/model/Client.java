@@ -10,16 +10,21 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
+    private long creditLimit;
+    private long creditUsage;
 
 
     // No-arg constructor
     public Client() {}
 
     // All-args constructor
-    public Client(int id, String firstName, String lastName, String email) {
+    public Client(int id, String firstName, String lastName, String email, long creditLimit, long creditUsage) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.creditLimit = creditLimit;
+        this.creditUsage = creditUsage;
+
     }
 }
