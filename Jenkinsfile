@@ -16,6 +16,13 @@ pipeline {
                 }
             }
         }
+         stage('Run Unit Test') {
+                       steps {
+                            script {
+                                sh 'mvn -Dtest=DemoApplicationTest test'
+                            }
+                       }
+                 }
 
         stage('Maven Build') {
             steps {
@@ -25,10 +32,10 @@ pipeline {
             }
         }
 
-         stage('Run Unit Test') {
+         stage('Run Cucumber Test') {
                steps {
                     script {
-                        sh 'mvn test'
+                        sh 'mvn -Dtest=CucumberTest test'
                     }
                }
          }
