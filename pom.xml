@@ -79,28 +79,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- ************************************** needed to remove some warning error when running Cucumber ************************************* -->
+		<!-- ************************ This will allow JUnit 4 tests to run in a JUnit 5 environment (since Spring Boot 3 defaults to JUnit 5) -->
 		<dependency>
-			<groupId>net.java.dev.jna</groupId>
-			<artifactId>jna</artifactId>
-			<version>5.13.0</version>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>5.9.3</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>net.java.dev.jna</groupId>
-			<artifactId>jna</artifactId>
-			<version>5.13.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>net.java.dev.jna</groupId>
-			<artifactId>jna-platform</artifactId>
-			<version>5.13.0</version>
-			<scope>test</scope>
-		</dependency>
-
 
 
 	</dependencies>
