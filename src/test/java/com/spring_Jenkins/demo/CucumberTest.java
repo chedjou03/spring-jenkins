@@ -9,7 +9,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.spring_Jenkins.demo.steps",
-        plugin = {"pretty", "html:target/cucumber-report.html"}
+        plugin = {"pretty",
+                "html:target/cucumber-report.html",
+                "json:target/cucumber.json",
+                "junit:target/cucumber.xml"}
 )
 public class CucumberTest {
 }

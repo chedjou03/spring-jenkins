@@ -40,6 +40,12 @@ pipeline {
                }
          }
 
+         stage(' Cucumber Report') {
+              steps {
+                    cucumber buildStatus: "UNSTABLE", fileIncludePattern:"**/cucumber.json",jsonReportDirectory: 'target'
+              }
+         }
+
          stage('Build Docker Image') {
               steps {
                    script {
