@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class ClientService {
@@ -57,6 +55,14 @@ public class ClientService {
 
         Client client17 = new Client(17,"jean marie","lukulassi","jmlukulassi@yahoo.com",40000,25000);
 
+        Client client18 = new Client(18,"Marco marie","rubio","marcorubio@yahoo.com",40000,25000);
+
+        Client client19 = new Client(19,"Dominique","devilpin","demoniquedevilpin@yahoo.com",40000,25000);
+
+        Client client20 = new Client(20,"Leivin Fils","walukunga","walukunga@yahoo.com",40000,25000);
+
+
+
         clients.add(client1);
         clients.add(client2);
         clients.add(client3);
@@ -74,6 +80,9 @@ public class ClientService {
         clients.add(client15);
         clients.add(client16);
         clients.add(client17);
+        clients.add(client18);
+        clients.add(client19);
+        clients.add(client20);
 
         return clients;
     }

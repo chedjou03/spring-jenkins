@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.spring-Jenkins</groupId>
 	<artifactId>client</artifactId>
-	<version>0.2.0</version>
+	<version>0.2.1</version>
 	<name>client</name>
 	<description>Demo project for Spring Boot with Jenkins intergretion</description>
 	<url/>
@@ -38,7 +38,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>  <!-- or latest -->
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -71,6 +72,37 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- ************************************** RestAssured for API Testing ************************************* -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- ************************************** needed to remove some warning error when running Cucumber ************************************* -->
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.13.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.13.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>5.13.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -99,6 +131,14 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -110,20 +150,6 @@
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
-			</plugin>
-
-			<!-- ************************************** This plugin allow us to access pom infos in the application ************** -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>build-info</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>
