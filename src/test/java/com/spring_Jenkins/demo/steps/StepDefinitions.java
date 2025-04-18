@@ -11,14 +11,14 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
-public class HelloStepDefinitions {
+public class StepDefinitions {
 
     private Response response;
 
     @LocalServerPort
     private int port;
 
-    public static Logger logger = LoggerFactory.getLogger(HelloStepDefinitions.class);
+    public static Logger logger = LoggerFactory.getLogger(StepDefinitions.class);
 
     @Given("the API is running")
     public void the_api_is_running() {
@@ -41,6 +41,11 @@ public class HelloStepDefinitions {
 
     @Then("the response body should contain {string}")
     public void the_response_body_should_contain(String expectedText) {
+        response.then().body(containsString(expectedText));
+    }
+
+    @Then("the ClientCount response body should contain {string}")
+    public void the_ClientCount_response_body_should_contain(String expectedText) {
         response.then().body(containsString(expectedText));
     }
 }

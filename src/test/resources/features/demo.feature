@@ -6,10 +6,5 @@ Feature: Hello API Test
     Then the response status should be 200
     And the response body should contain "Hello, World!"
 
-  Scenario: Verify that the API returns a Hello message2
-    Given the API is running
-    When I send a GET request to "/hello"
-    Then the response status should be 200
-    And the response body should contain "Hello, World!"
 
 
