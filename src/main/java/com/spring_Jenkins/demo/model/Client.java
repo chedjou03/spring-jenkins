@@ -12,8 +12,8 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
-    private long creditLimit;
-    private long creditUsage;
+    private Long creditLimit;
+    private Long creditUsage;
 
     public int getId() {
         return id;
@@ -92,7 +92,7 @@ public class Client {
     public Client() {}
 
     // All-args constructor
-    public Client(int id, String firstName, String lastName, String email, long creditLimit, long creditUsage) {
+    public Client(int id, String firstName, String lastName, String email, Long creditLimit, Long creditUsage) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
