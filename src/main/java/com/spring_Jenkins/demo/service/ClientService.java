@@ -63,6 +63,7 @@ public class ClientService {
 
         Client client21 = new Client(21,"coco","Rubenga","cocorubenga@yahoo.com",Long.valueOf(30000),Long.valueOf(25000));
 
+        Client client22 = new Client(22,"Robert","Prevost","cocorubenga@yahoo.com",Long.valueOf(30000),Long.valueOf(55000));
 
 
         clients.add(client1);
@@ -86,6 +87,7 @@ public class ClientService {
         clients.add(client19);
         clients.add(client20);
         clients.add(client21);
+        clients.add(client22);
 
         return clients;
     }

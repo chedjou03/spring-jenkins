@@ -87,4 +87,19 @@ class DemoApplicationTest {
 		logger.info("*************** test case 10 is execution ");
 		assertEquals(true,true);
 	}
+
+	@Test
+	@Order(11)
+	void contextLoads11() {
+		logger.info("*************** test case 11 is execution ");
+		assertEquals(true,true);
+	}
+
+
+	@Test
+	@Order(12)
+	void contextLoads12() {
+		logger.info("*************** test case 12 is execution ");
+		assertEquals(true,true);
+	}
 }
